@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //         Front-end development: Prototypes
+      // JavaScript – Pokeman
+      // The following exercise contains the following subjects:
+      // ● prototypes
+      // Instructions
+      // You are given a function, Pokeman, that takes three
+      // parameters, pokemonName, pokemonType, an array of
+      // different pokemon attack methods, pokemonAttackList.
+
+      // Here is the Pokemon function:
+      function Pokemon(pokemonName, pokemonType, pokemonAttackList) {
+        this.name = pokemonName;
+        this.type = pokemonType;
+        this.attackList = pokemonAttackList;
+      }
+
+      // 1. Create three instances of the Pokemon and save them in
+      // a variable.
+      let pikachu = new Pokemon("Pikachu", "Electric", [
+        "Shock",
+        "Kick",
+        "Voltage",
+      ]);
+      let squirtle = new Pokemon("Squirtle", "Water", [
+        "Drown",
+        "Water Blast",
+        "Wave",
+      ]);
+      let charmander = new Pokemon("Charmander", "Fire", [
+        "Fry",
+        "Burn",
+        "Heatwave",
+      ]);
+
+      // 2. Using prototype properties, add the following methods:
+
+      // ● A method called callPokemon will print the following:
+      // “I choose you, <pokemon name>
+
+      Pokemon.prototype.choose = function () {
+        return `I choose you, ${this.name}`;
+      };
+      console.log(pikachu.choose());
+
+      // ● • A method called attack that takes one parameter,
+      // an attack number, that will print the specific attack
+      // method from the pokemonAttackList array as the
+      // following: “<pokemon name> used <attack method>”
+      // Call each pokemon with the 2 methods you created.
+
+      Pokemon.prototype.attack = function (num) {
+        return ` ${this.attackList[num]}`;
+      };
+      console.log(pikachu.attack(0));
+    </script>
+  </body>
+</html>
